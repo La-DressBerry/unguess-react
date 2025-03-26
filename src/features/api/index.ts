@@ -2478,6 +2478,39 @@ export type SubcomponentTaskSurvey = {
   title: string;
   description?: string;
 };
+export type SubcomponentAppDesktop = {
+  kind: 'app';
+  form_factor: 'desktop';
+  os?: string;
+  link: string;
+};
+export type SubcomponentAppTablet = {
+  kind: 'app';
+  form_factor: 'tablet';
+  os?: string;
+  link: string;
+};
+export type SubcomponentAppSmartphone = {
+  kind: 'app';
+  form_factor: 'smartphone';
+  os?: string;
+  link: string;
+};
+export type SubcomponentWebDesktop = {
+  kind: 'web';
+  form_factor: 'desktop';
+  link: string;
+};
+export type SubcomponentWebTablet = {
+  kind: 'web';
+  form_factor: 'tablet';
+  link: string;
+};
+export type SubcomponentWebSmartphone = {
+  kind: 'web';
+  form_factor: 'smartphone';
+  link: string;
+};
 export type OutputModuleTaskModerateVideo = {
   kind: 'moderate-video';
   title: string;
@@ -2571,6 +2604,18 @@ export type ModuleSetupNote = {
   variant: string;
   output: string;
 };
+export type SubcomponentTouchpoint =
+  | SubcomponentAppDesktop
+  | SubcomponentAppTablet
+  | SubcomponentAppSmartphone
+  | SubcomponentWebDesktop
+  | SubcomponentWebTablet
+  | SubcomponentWebSmartphone;
+export type ModuleTouchpoints = {
+  type: 'touchpoints';
+  variant: string;
+  output: SubcomponentTouchpoint[];
+};
 export type Module =
   | ModuleTitle
   | ModuleDate
@@ -2585,7 +2630,8 @@ export type Module =
   | ModuleBrowser
   | ModuleTargetNote
   | ModuleInstructionNote
-  | ModuleSetupNote;
+  | ModuleSetupNote
+  | ModuleTouchpoints;
 export type PlanStatus = 'pending_review' | 'draft' | 'approved';
 export type StrapiTemplate = {
   title: string;
